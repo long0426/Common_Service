@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: jwt
+    app.kubernetes.io/component: web
+    app.kubernetes.io/instance: jwt
+    app.kubernetes.io/name: jwt
+    app.openshift.io/runtime: java
+  name: jwt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jwt
+  template:
+    metadata:
+      labels:
+        app: jwt
+    spec:
+      containers:
+      - name: jwt
+        imagePullPolicy: Always
+        image: image-registry.openshift-image-registry.svc:5000/common-service/jwt:147a78b1cc810fe50fba6ccc963452369f87a5e7
+        ports:
+        - containerPort: 8481
+          protocol: TCP

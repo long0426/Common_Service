@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pgp
+  name: pgp
+spec:
+  ports:
+  - name: 8482-tcp
+    port: 8482
+    protocol: TCP
+    targetPort: 8482
+  selector:
+    app: pgp
+  sessionAffinity: None
+  type: ClusterIP

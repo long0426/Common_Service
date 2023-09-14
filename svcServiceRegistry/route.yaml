@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: svc-service-registry
+  name: svc-service-registry
+spec:
+  port:
+    targetPort: 8581-tcp
+  to:
+    kind: Service
+    name: svc-service-registry
+    weight: 100

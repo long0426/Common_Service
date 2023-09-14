@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: pgp
+  name: pgp
+spec:
+  port:
+    targetPort: 8482-tcp
+  to:
+    kind: Service
+    name: pgp
+    weight: 100

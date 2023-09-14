@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: pgp
+    app.kubernetes.io/component: web
+    app.kubernetes.io/instance: pgp
+    app.kubernetes.io/name: pgp
+    app.openshift.io/runtime: java
+  name: pgp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgp
+  template:
+    metadata:
+      labels:
+        app: pgp
+    spec:
+      containers:
+      - name: pgp
+        imagePullPolicy: Always
+        image: image-registry.openshift-image-registry.svc:5000/common-service/pgp:72f849e9d2c2ccc14d34fd13e2ec7dafb12f4085
+        ports:
+        - containerPort: 8482
+          protocol: TCP

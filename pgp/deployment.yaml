@@ -22,7 +22,7 @@ spec:
       containers:
       - name: pgp
         imagePullPolicy: Always
-        image: image-registry.openshift-image-registry.svc:5000/common-service/pgp:72f849e9d2c2ccc14d34fd13e2ec7dafb12f4085
+        image: image-registry.openshift-image-registry.svc:5000/common-service/pgp:41fe42023b5d87b0106034d67cb5a333f5c05f69
         ports:
         - containerPort: 8482
           protocol: TCP
